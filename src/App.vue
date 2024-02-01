@@ -6,9 +6,15 @@
 
     let showModal=ref(false)
 
+    let newNote=ref("")//Two way binding
+
+    const note=ref([])
+
     const toggleModal=()=>{
       showModal.value=!showModal.value
     }
+
+
 
 
 
@@ -25,8 +31,8 @@
   <main>
     <div class="over" v-if="showModal">
       <div class="modal">
-
-        <textarea name="note" id="note" cols="60" rows="10"></textarea>
+        
+        <textarea v-model="newNote" name="note" id="note" cols="60" rows="10"></textarea>
         <button class="modal-button">Add your Note</button>
         <button class="close-button" @click=toggleModal>Close</button>
       </div>
